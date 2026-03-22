@@ -29,7 +29,7 @@ The architecture is designed to model **spectral features, temporal dependencies
 
 ---
 
-### 🔹 Multi-Scale CNN Encoder
+### Multi-Scale CNN Encoder
 - Uses convolutional layers with different kernel sizes  
 - Captures:
   - Fine-grained details (small kernels)  
@@ -38,7 +38,7 @@ The architecture is designed to model **spectral features, temporal dependencies
 
 ---
 
-### 🔹 Conformer-Based Attention Encoder
+### Conformer-Based Attention Encoder
 - Combines **self-attention** and **convolution modules**  
 - Learns:
   - Long-range dependencies (attention)  
@@ -47,14 +47,14 @@ The architecture is designed to model **spectral features, temporal dependencies
 
 ---
 
-### 🔹 Hierarchical Capsule Network
+###  Hierarchical Capsule Network
 - Primary capsules capture low-level speech features  
 - Emotion capsules represent different emotion classes  
 - Uses **dynamic routing** to learn relationships between features and emotions  
 
 ---
 
-### 🔹 Emotion Classification
+### Emotion Classification
 - Each capsule outputs a vector  
 - The **vector length represents probability** of an emotion  
 - Emotion with the highest activation is selected as final prediction  
