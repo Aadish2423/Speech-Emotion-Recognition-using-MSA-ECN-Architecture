@@ -1,150 +1,122 @@
-**Overview**
+# Speech Emotion Recognition using MSA-ECN Architecture
 
-Speech Emotion Recognition (SER) is a crucial task in human–computer interaction that focuses on identifying emotional states from speech signals. This repository presents a deep learning–based SER system that classifies emotions from audio data using two distinct model architectures:
+## Overview
 
-Multi-Layer Perceptron (MLP) implemented using TensorFlow
+Speech Emotion Recognition (SER) is an important task in human–computer interaction that aims to identify human emotions from speech signals. This project presents an advanced deep learning–based SER system using a **Multi-Scale Attention-based Capsule Network (MSA-ECN)** architecture.
 
-Transformer-based model implemented using PyTorch
+The model combines **multi-channel acoustic feature extraction, convolutional learning, attention mechanisms, and capsule networks** to effectively capture both low-level and high-level emotional patterns in speech.
 
-The project emphasizes model comparison, robustness, and generalization by employing K-Fold Cross-Validation, ensuring reliable performance evaluation across multiple data splits.
+The architecture is designed to model **spectral features, temporal dependencies, and feature relationships**, achieving an accuracy of approximately **85%**.
 
-----------------------------------------------------------------------------------------------------------------------------------
-**Objectives**
+---
 
-Build a reliable system to classify emotions from speech
+## Objectives
 
-Compare traditional neural networks with attention-based architectures
+- Develop a robust system to classify emotions from speech signals  
+- Capture diverse acoustic properties using multi-channel feature extraction  
+- Model both local and long-range temporal dependencies in audio  
+- Leverage capsule networks to improve feature–emotion relationships  
+- Achieve high accuracy and generalization in emotion classification  
 
-Evaluate performance using K-Fold Cross-Validation
+---
 
-Demonstrate framework interoperability (TensorFlow vs PyTorch)
+## Model Architecture (MSA-ECN)
 
-----------------------------------------------------------------------------------------------------------------------------------
-**Models Implemented**
+### 🔹 Multi-Channel Feature Extraction
+- Extract acoustic features such as **MFCC, Mel Spectrogram, and Chroma**  
+- Combine them as multi-channel inputs  
+- Capture complementary information like pitch, tone, and frequency variations  
 
-🔹 Multi-Layer Perceptron (MLP)
+---
 
-Framework: TensorFlow
+### 🔹 Multi-Scale CNN Encoder
+- Uses convolutional layers with different kernel sizes  
+- Captures:
+  - Fine-grained details (small kernels)  
+  - Global patterns (large kernels)  
+- Produces rich **spectro-temporal representations**  
 
-Fully connected architecture
+---
 
-Operates on extracted audio features
+### 🔹 Conformer-Based Attention Encoder
+- Combines **self-attention** and **convolution modules**  
+- Learns:
+  - Long-range dependencies (attention)  
+  - Local patterns (convolution)  
+- Helps model how emotions evolve over time  
 
-Serves as a strong baseline for emotion classification
+---
 
-Lightweight and computationally efficient
+### 🔹 Hierarchical Capsule Network
+- Primary capsules capture low-level speech features  
+- Emotion capsules represent different emotion classes  
+- Uses **dynamic routing** to learn relationships between features and emotions  
 
-🔹 Transformer Model
+---
 
-Framework: PyTorch
+### 🔹 Emotion Classification
+- Each capsule outputs a vector  
+- The **vector length represents probability** of an emotion  
+- Emotion with the highest activation is selected as final prediction  
 
-Uses self-attention mechanisms
+---
 
-Captures temporal and contextual dependencies in speech
+## Methodology
 
-Better suited for sequential audio representations
+### 1. Audio Preprocessing
+- Load and normalize speech signals  
+- Remove noise and inconsistencies  
+- Extract relevant speech segments  
 
-Demonstrates improved modeling of long-range dependencies
+### 2. Feature Extraction
+- Extract MFCC, Mel Spectrogram, and Chroma features  
+- Stack features into multi-channel inputs  
+- Convert into model-ready format  
 
-----------------------------------------------------------------------------------------------------------------------------------
-**Methodology**
+### 3. Model Training
+- Train the MSA-ECN architecture end-to-end  
+- Optimize using backpropagation  
+- Learn hierarchical and temporal representations  
 
-1.Audio Preprocessing
+### 4. Evaluation
+- Evaluate model performance on test data  
+- Achieved approximately **85% accuracy**  
+- Analyze performance across emotion classes  
 
-Audio signals are loaded and normalized
+---
 
-Noise and inconsistencies are handled
+## Tech Stack
 
-Relevant speech segments are extracted
+- Python  
+- PyTorch / TensorFlow  
+- Librosa  
+- NumPy  
+- Scikit-learn  
+- Google Colab  
 
-2. Feature Extraction
+---
 
-Acoustic features (e.g., MFCCs and spectral features) are extracted
+## Results & Observations
 
-Features are transformed into numerical representations
+- Multi-channel features improve speech representation  
+- Multi-Scale CNN captures both local and global patterns  
+- Conformer enhances temporal understanding of emotions  
+- Capsule Networks improve feature–emotion relationships  
+- Achieved **~85% accuracy**, showing strong performance  
 
-Data is prepared for model input
+---
 
-3. Model Training
+## Future Enhancements
 
-Separate pipelines for MLP and Transformer models
+- Apply **data augmentation techniques**  
+- Explore **CNN + Transformer hybrid models**  
+- Fine-tune Conformer and Capsule Network parameters  
+- Implement real-time emotion recognition  
+- Deploy as a **web or desktop application**  
 
-Training conducted using K-Fold Cross-Validation
+---
 
-Each fold acts once as validation and remaining as training data
+## Author
 
-4. Evaluation
-
-Performance is evaluated across all folds
-
-Metrics are averaged for unbiased assessment
-
-----------------------------------------------------------------------------------------------------------------------------------
-**Tech Stack**
-
-Python
-
-TensorFlow
-
-PyTorch
-
-NumPy
-
-Librosa
-
-Scikit-learn
-
-Google Colab
-
-----------------------------------------------------------------------------------------------------------------------------------
-**Setup and Running**
-
-🔹 Option 1: Google Colab (Recommended)
-
-Upload SER.ipynb to Google Colab
-
-Mount Google Drive (if required)
-
-Install dependencies
-
-Run cells sequentially
-
-🔹 Option 2: Local Setup
-git clone https://github.com/your-username/speech-emotion-recognition.git
-cd speech-emotion-recognition
-pip install -r requirements.txt
-
-Run the notebook using Jupyter:
-
-jupyter notebook SER.ipynb
-
-----------------------------------------------------------------------------------------------------------------------------------
-**Results & Observations**
-
-MLP provides efficient and stable baseline performance
-
-Transformer captures richer contextual information
-
-K-Fold Cross-Validation improves reliability of evaluation
-
-Trade-offs observed between computational cost and accuracy
-
-----------------------------------------------------------------------------------------------------------------------------------
-**Future Enhancements**
-
-Fine-tuning transformer hyperparameters
-
-Adding CNN + Transformer hybrid architectures
-
-Applying data augmentation techniques
-
-Real-time emotion recognition from live audio
-
-Deployment as a web or desktop application
-
-----------------------------------------------------------------------------------------------------------------------------------
-**Author**
-
-Aadish Bane
-
-Interests: Artificial Intelligence, Machine Learning, Deep Learning
+**Aadish Bane**  
+*Interests: Artificial Intelligence, Machine Learning, Deep Learning*
